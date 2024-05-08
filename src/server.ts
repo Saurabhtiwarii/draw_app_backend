@@ -4,6 +4,7 @@ import { connectDB } from './db';
 import router from './routes';
 import bodyparser from 'body-parser';
 import cors from 'cors';
+import dotenv from "dotenv"
 const app = express();
 const port = 8080;
 
@@ -17,6 +18,8 @@ app.use(bodyparser.json());
 app.use(express.json());
 
 app.use("/", router);
+dotenv.config();
+
 
 app.listen(port, () => {
   connectDB();
